@@ -1,1 +1,1 @@
-Project setup for the 
+Project setup for the main packages. 
