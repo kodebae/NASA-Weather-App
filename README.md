@@ -5,6 +5,7 @@
 
 ## Configuration Instructions
 > This project was bootstrapped  with "Create React App"
+* Context API intergraded to provide functionality for state management.
 
 ## Installed packages
 
