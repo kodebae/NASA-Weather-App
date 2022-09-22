@@ -1,6 +1,5 @@
 # NASA Weather App
 
-
 > Project setup for the main packages
 
 ## Configuration Instructions
