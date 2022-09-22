@@ -5,14 +5,13 @@ import useSuperCluster from 'use-supercluster';
 
 function Map({center, eventData}) {
 
-    const [zoom, setZoom] = useState(1); // set up in state so this can be configured during user interaction
+    const [zoom, setZoom] = useState(2); // set up in state so this can be configured during user interaction
     return (
         <div className="map-container">
             <GoogleMapReact
-            bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_KEY}}
-            center={center}
-            zoom={zoom}>
-                
+                bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_KEY}}
+                center={center}
+                zoom={zoom}> 
             </GoogleMapReact>
         </div>
     );

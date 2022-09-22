@@ -27,10 +27,11 @@ export function ContextProvider({children}){
 
     return(
         <mainContext.Provider value={value}>
-            {children}
+        {children}
         </mainContext.Provider>
     )
-} // syntaxt to return the main functionality of Context API
+} 
+// syntaxt to return the main functionality of Context API
 // functional component used to wrap our app, that is why we are using this casing
 
 /** Context API => a way to pass props through the component tree without having to pass props down manually at every level, 
