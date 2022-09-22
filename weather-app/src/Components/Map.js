@@ -5,7 +5,7 @@ import useSuperCluster from 'use-supercluster';
 
 function Map({center, eventData}) {
 
-    const [zoom, setZoom] = useState(2); // set up in state so this can be configured during user interaction
+    const [zoom, setZoom] = useState(5); // set up in state so this can be configured during user interaction
     return (
         <div className="map-container">
             <GoogleMapReact
@@ -19,10 +19,10 @@ function Map({center, eventData}) {
 
 Map.defaultProps = {
     center: {
-        lat: 35.2082,
-        lng: 82.2384
+        lat: 37.419857,
+        lng: -122.078827
     }
-} // lat and long coordinates for Tryon NC
+} // lat and long coordinates for Mountin View CA
 
 export default Map;
 
