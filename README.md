@@ -13,7 +13,8 @@
 
 ## Operating Instructions
 * To view JSON data navigate to [JSON Beautify](https://codebeautify.org/jsonviewer)
-* Input EONET API URL link https://eonet.gsfc.nasa.gov/api/v3/events
+* Input EONET API URL link https://eonet.gsfc.nasa.gov/api/v3/events | Using version 3 of the API.
+
 
 ## Key Features
 
