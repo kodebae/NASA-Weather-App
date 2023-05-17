@@ -7,12 +7,7 @@
 * Context API intergraded to provide functionality for state management.
 
 ## Installed packages
-1. yarn ( must be installed globally )
-2. iconify react
-3. emoji one
-4. dot env
-5. use super cluster
-6. Google maps react
+
 
 * Google font's used for styling purposes, *Open Sans* 
 

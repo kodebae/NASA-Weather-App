@@ -1,18 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import { createRoot } from 'react-dom';
 import App from './App';
-//Main Context
-import {ContextProvider} from './Context/Context'
 
-const root=ReactDOM.createRoot(document.getElementById('root'))
-root.render(
-  <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
-  </React.StrictMode>,
-);
+// Use createRoot to render the app
+createRoot(document.getElementById('root')).render(<App />);
 
-// We have to wrap our entire app in our Context API provider so we can pass the children down from the "parent" Context store.
 
