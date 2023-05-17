@@ -1,29 +1,51 @@
-import React, {useState, useRef, useEffect} from 'react';
-import GoogleMapReact from 'google-map-react';
-import useSuperCluster from 'use-supercluster';
+import React, { useState, useEffect, useRef } from 'react';
+import * as googleMaps from '@google/maps';
+import { LatLngLiteral } from '@google/maps';
 
+const GoogleMap = ({ apiKey, options, onMapLoad }) => {
+  const [map, setMap] = useState(null);
+  const mapRef = useRef(null);
+  const mapsRef = useRef(null);
 
-function Map({center, eventData}) {
-
-    const [zoom, setZoom] = useState(5); // set up in state so this can be configured during user interaction
-    return (
-        <div className="map-container">
-            <GoogleMapReact
-                bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_KEY}}
-                center={center}
-                zoom={zoom}> 
-            </GoogleMapReact>
-        </div>
-    );
-}
-
-Map.defaultProps = {
-    center: {
-        lat: 37.419857,
-        lng: -122.078827
+  useEffect(() => {
+    if (!map && mapRef.current && mapsRef.current) {
+      const mapOptions = {
+        ...options,
+        center: new googleMaps.LatLngLiteral(options.center),
+      };
+      const newMap = new googleMaps.Map(mapRef.current, mapOptions);
+      setMap(newMap);
+      onMapLoad(newMap);
     }
-} // lat and long coordinates for Mountin View CA
+  }, [map, options, onMapLoad]);
 
-export default Map;
+  useEffect(() => {
+    return () => {
+      if (map) {
+        map.setMap(null);
+        map.dispose();
+      }
+    };
+  }, [map]);
 
-// Google Map React is not a self closing container.
+  useEffect(() => {
+    if (apiKey && !mapsRef.current) {
+      const newMaps = googleMaps;
+      newMaps.KEY = apiKey;
+      mapsRef.current = newMaps;
+    }
+  }, [apiKey]);
+
+  return (
+    <div
+      ref={(ref) => {
+        mapRef.current = ref;
+      }}
+      style={{ height: '100%', width: '100%' }}
+    />
+  );
+};
+
+export default GoogleMap;
+
+

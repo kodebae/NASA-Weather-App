@@ -27,7 +27,7 @@ export function ContextProvider({children}){
 
     return(
         <mainContext.Provider value={value}>
-        {children}
+            {children}
         </mainContext.Provider>
     )
 } 
