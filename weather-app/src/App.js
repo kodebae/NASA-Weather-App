@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Header from './Components/Header';
 
@@ -32,7 +32,7 @@ function App() {
       <Header onSelectWeather={handleWeatherSelection} />
       <MapContainer
         center={[0, 0]}
-        zoom={2}
+        zoom={3}
         style={{ height: '100vh', width: '100vw' }}
       >
         <TileLayer
@@ -41,14 +41,12 @@ function App() {
         />
         {filteredEvents.map((event) => (
           <Marker
-            key={event.id}
-            position={[
-              event.geometry[0].coordinates[1],
-              event.geometry[0].coordinates[0],
+          key={event.id}
+          position={[
+            event.geometry[0].coordinates[1],
+            event.geometry[0].coordinates[0],
             ]}
-          >
-            <Popup>{event.title}</Popup>
-          </Marker>
+          />
         ))}
       </MapContainer>
     </div>

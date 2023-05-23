@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import worldMap from '@iconify/icons-emojione/world-map';
+import { WiFire, WiDayThunderstorm, WiVolcano } from 'react-icons/wi';
 import '../index.css';
 
 function Header({ onSelectWeather }) {
@@ -12,6 +13,12 @@ function Header({ onSelectWeather }) {
     onSelectWeather(selectedOption);
   };
 
+  const weatherIcons = [
+    { value: "Wildfires", icon: <WiFire/> },
+    { value: "Severe Storms", icon: <WiDayThunderstorm/> },
+    { value: "Volcanos", icon: <WiVolcano/> }
+  ];
+
   return (
     <div className="header-bar">
       <Icon icon={worldMap} className="header-icon" />
@@ -21,11 +28,12 @@ function Header({ onSelectWeather }) {
         onChange={handleWeatherChange}
         className="weather-dropdown"
       >
-        <option value="">Select Weather</option>
-        <option value="wildfires">Wildfires</option>
-        <option value="storms">Storms</option>
-        <option value="volcanoes">Volcanoes</option>
-        {/* Add more options as needed */}
+        <option value="">All</option>
+        {weatherIcons.map((weatherIcon) => (
+          <option value={weatherIcon.value} key={weatherIcon.icon}>
+            {weatherIcon.value}
+          </option>
+        ))}
       </select>
     </div>
   );
@@ -33,6 +41,10 @@ function Header({ onSelectWeather }) {
 
 export default Header;
 
+
+
 /**
 *TODO: Need to update the markers for the images. 
 */
+
+// { value: "select weather", icon: <WiDaySunny/> },
