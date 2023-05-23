@@ -44,7 +44,5 @@ export default Header;
 
 
 /**
-*TODO: Need to update the markers for the images. 
+*TODO: Troubleshoot why icons are not showing up in dropdown. 
 */
-
-// { value: "select weather", icon: <WiDaySunny/> },
