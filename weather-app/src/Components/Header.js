@@ -14,9 +14,9 @@ function Header({ onSelectWeather }) {
   };
 
   const weatherIcons = [
-    { value: "Wildfires", icon: <WiFire/> },
-    { value: "Severe Storms", icon: <WiDayThunderstorm/> },
-    { value: "Volcanos", icon: <WiVolcano/> }
+    { value: "wildfires", icon: <WiFire /> },
+    { value: "severeStorms", icon: <WiDayThunderstorm /> },
+    { value: "volcanoes", icon: <WiVolcano /> }
   ];
 
   return (
@@ -30,7 +30,7 @@ function Header({ onSelectWeather }) {
       >
         <option value="">All</option>
         {weatherIcons.map((weatherIcon) => (
-          <option value={weatherIcon.value} key={weatherIcon.icon}>
+          <option value={weatherIcon.value} key={weatherIcon.value}>
             {weatherIcon.value}
           </option>
         ))}
@@ -40,7 +40,6 @@ function Header({ onSelectWeather }) {
 }
 
 export default Header;
-
 
 
 /**

@@ -9,44 +9,33 @@ function App() {
   const [selectedWeather, setSelectedWeather] = useState('');
 
   useEffect(() => {
-    axios
-      .get('https://eonet.gsfc.nasa.gov/api/v3/events')
-      .then((response) => {
-        setEvents(response.data.events);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    axios.get('https://eonet.gsfc.nasa.gov/api/v3/events')
+      .then(response => setEvents(response.data.events))
+      .catch(error => console.log(error));
   }, []);
 
-  const handleWeatherSelection = (weather) => {
-    setSelectedWeather(weather);
-  };
+  const handleWeatherSelection = weather => setSelectedWeather(weather);
 
   const filteredEvents = selectedWeather
-    ? events.filter((event) => event.categories[0].id === selectedWeather)
+    ? events.filter(event => event.categories[0].id === selectedWeather)
     : events;
 
   return (
     <div className="App">
       <Header onSelectWeather={handleWeatherSelection} />
-      <MapContainer
-        center={[0, 0]}
-        zoom={3}
-        style={{ height: '100vh', width: '100vw' }}
-      >
+      <MapContainer center={[0, 0]} zoom={3} style={{ height: '100vh', width: '100vw' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data © <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors"
-        />
-        {filteredEvents.map((event) => (
-          <Marker
-          key={event.id}
-          position={[
-            event.geometry[0].coordinates[1],
-            event.geometry[0].coordinates[0],
-            ]}
           />
+            {filteredEvents.map(event => (
+          <Marker
+            key={event.id}
+            position={[
+              event.geometry[0].coordinates[1],
+              event.geometry[0].coordinates[0],
+            ]}>
+          </Marker>   
         ))}
       </MapContainer>
     </div>
@@ -54,4 +43,3 @@ function App() {
 }
 
 export default App;
-
