@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import worldMap from '@iconify/icons-emojione/world-map';
-import { WiFire, WiDayThunderstorm, WiVolcano } from 'react-icons/wi';
+import fireBoldDuotone from '@iconify/icons-solar/fire-bold-duotone';
+import cloudStormBoldDuotone from '@iconify/icons-solar/cloud-storm-bold-duotone';
+import twotoneVolcano from '@iconify/icons-ic/twotone-volcano';
 import '../index.css';
 
 function Header({ onSelectWeather }) {
@@ -14,9 +16,9 @@ function Header({ onSelectWeather }) {
   };
 
   const weatherIcons = [
-    { value: "wildfires", icon: <WiFire /> },
-    { value: "severeStorms", icon: <WiDayThunderstorm /> },
-    { value: "volcanoes", icon: <WiVolcano /> }
+    { value: "Wildfires", icon: fireBoldDuotone },
+    { value: "Severe Storms", icon: cloudStormBoldDuotone },
+    { value: "Volcanoes", icon: twotoneVolcano }
   ];
 
   return (
