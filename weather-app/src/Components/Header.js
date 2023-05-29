@@ -4,6 +4,7 @@ import worldMap from '@iconify/icons-emojione/world-map';
 import fireBoldDuotone from '@iconify/icons-solar/fire-bold-duotone';
 import cloudStormBoldDuotone from '@iconify/icons-solar/cloud-storm-bold-duotone';
 import twotoneVolcano from '@iconify/icons-ic/twotone-volcano';
+import 'leaflet/dist/leaflet.css';
 import '../index.css';
 
 function Header({ onSelectWeather }) {
